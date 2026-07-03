@@ -1,6 +1,6 @@
 // Small fetch wrapper around the Django REST API.
 // Change API_BASE if your backend runs somewhere other than localhost:8000.
-const API_BASE = 'http://127.0.0.1:8000/api'
+const API_BASE = `${import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'}/api`
 
 async function request(path, options = {}) {
   const res = await fetch(`${API_BASE}${path}`, {
